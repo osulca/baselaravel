@@ -2,10 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PaController;
-use App\Http\Controllers\BancoController;
-use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\ArticuloController;
+use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\ProgramacionController;
+use App\Http\Controllers\LeccionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,67 +20,26 @@ use App\Http\Controllers\ArticuloController;
 Route::get('/', function () {
     return view('welcome');
 });
+//Controlador Profesor
+Route::get('/profesor1', [ProfesorController::class, 'mostrar1']);
+Route::get('/profesor1/guardar', [ProfesorController::class, 'guardar1']);
+Route::get('/profesor2', [ProfesorController::class, 'mostrar2']);
+Route::get('/profesor2/guardar', [ProfesorController::class, 'guardar2']);
 
-Route::get('/sistemas', [PaController::class, 'sistemas'])->name('paSistemas');
-Route::get('/civil', [PaController::class, 'civil']);
-Route::post('/procesado', [PaController::class, 'nombre'])->name("procesadoNombre");
-Route::get('/usuarios/{id}/{edad}', [PaController::class, 'usuarios']);
+//Controlador Estudiante
+Route::get('/estudiantes1', [EstudianteController::class, 'mostrar1']);
+Route::get('/estudiantes1/guardar', [EstudianteController::class, 'guardar1']);
+Route::get('/estudiantes2', [EstudianteController::class, 'mostrar2']);
+Route::get('/estudiantes2/guardar', [EstudianteController::class, 'guardar2']);
 
-//Pregunta 1
-Route::get('/verbos', function(){
-    return view('prueba');
-});
-Route::post('/verbos', function (){
-    return "Haz hecho POST";
-});
+//Controlador Programaciones
+Route::get('/programaciones1', [ProgramacionController::class, 'mostrar1']);
+Route::get('/programaciones1/guardar', [ProgramacionController::class, 'guardar1']);
+Route::get('/programaciones2', [ProgramacionController::class, 'mostrar2']);
+Route::get('/programaciones2/guardar', [ProgramacionController::class, 'guardar2']);
 
-//Pregunta 2
-Route::get('/suma/{op1}/{op2}', function (int $op1, int $op2){
-    return $op1+$op2;
-});
-
-Route::get('/resta/{op1}/{op2}', function (int $op1, int $op2){
-    return $op1-$op2;
-});
-
-Route::get('/multiplicacion/{op1}/{op2}', function (int $op1, int $op2){
-    return $op1*$op2;
-});
-
-Route::get('/division/{op1}/{op2}', function (float $op1, float $op2){
-    if($op2!=0) {
-        return $op1 / $op2;
-    }else{
-        return "division entre 0";
-    }
-});
-
-//Pregunta 3
-Route::get('/sumaVista/{op1}/{op2}', function(int $op1, int $op2){
-    return view('suma', ['op1'=>$op1, 'op2'=>$op2]);
-});
-Route::get('/multiVista/{op1}/{op2}', function(int $op1, int $op2){
-    return view('multiplicacion', ['op1'=>$op1, 'op2'=>$op2]);
-});
-
-//Pregunta 4
-Route::view('/form', 'formulario');
-Route::post('/mostrar', function (Request $request){
-    return view('mostrar', ['username'=>$request->input('username'),
-        'pass1'=>$request->input('pass1'),
-        'pass2'=>$request->input('pass2')]);
-});
-
-//Pregunta 5
-Route::get('/usuario', function (Request $request){
-    return md5($request->input('token'));
-});
-
-Route::get('/saldo', BancoController::class);
-
-Route::apiResource('/usuario', UsuarioController::class);
-
-Route::get('/articulos1', [ArticuloController::class, 'mostrar1']);
-Route::get('/articulos2', [ArticuloController::class, 'mostrar2']);
-Route::get('/articulos3', [ArticuloController::class, 'mostrar3']);
-Route::get('/articulos3/guardar', [ArticuloController::class, 'guardar3']);
+//Controlador lecciones
+Route::get('/lecciones1', [LeccionController::class, 'mostrar1']);
+Route::get('/lecciones1/guardar', [LeccionController::class, 'guardar1']);
+Route::get('/lecciones2', [LeccionController::class, 'mostrar2']);
+Route::get('/lecciones2/guardar', [LeccionController::class, 'guardar2']);

@@ -5,13 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Articulo extends Model
+class Estudiante extends Model
 {
     use HasFactory;
-
     public $timestamps = false;
-
-    protected $hidden = [
-        'fabricante_id'
-    ];
 }

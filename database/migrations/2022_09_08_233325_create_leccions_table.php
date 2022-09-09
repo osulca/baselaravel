@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articulos', function (Blueprint $table) {
+        Schema::create('leccions', function (Blueprint $table) {
             $table->id();
-            $table->string("nombre", 100);
-            $table->integer("precio");
-            $table->foreignId("fabricante_id")->constrained('fabricantes');
+            $table->integer("numero");
+            $table->string("status");
+            $table->string("comentario_profesor");
+            $table->string("comentario_estudiante");
+            $table->foreignId("programacion_id")->constrained();
+            $table->foreignId("estudiante_id")->constrained();
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articulos');
+        Schema::dropIfExists('leccions');
     }
 };
