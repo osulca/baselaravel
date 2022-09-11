@@ -10,14 +10,17 @@ class EstudianteController extends Controller
 {
     public function mostrar1 (){
         $resultados = DB::table('estudiantes')->get();
-        dd($resultados);
+        return view("estudiantes.mostrar")
+            ->with("resultados", $resultados)
+            ->with("saludo","Hola Mundo");
     }
 
-    public function guardar1 (){
+    public function guardar1 (Request $request){
         DB::table('estudiantes')->insert([
-            'nombre'=>'Ana Torres',
-            'email'=>'ana@torres.com'
+            'nombre'=>$request->input("nombre"),
+            'email'=>$request->input("email")
         ]);
+        return redirect('/estudiantes1');
     }
 
     public function mostrar2 (){

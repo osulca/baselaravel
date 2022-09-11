@@ -27,8 +27,8 @@ Route::get('/profesor2', [ProfesorController::class, 'mostrar2']);
 Route::get('/profesor2/guardar', [ProfesorController::class, 'guardar2']);
 
 //Controlador Estudiante
-Route::get('/estudiantes1', [EstudianteController::class, 'mostrar1']);
-Route::get('/estudiantes1/guardar', [EstudianteController::class, 'guardar1']);
+Route::get('/estudiantes1', [EstudianteController::class, 'mostrar1'])->name("mostrar");
+Route::post('/estudiantes1/guardar', [EstudianteController::class, 'guardar1']);
 Route::get('/estudiantes2', [EstudianteController::class, 'mostrar2']);
 Route::get('/estudiantes2/guardar', [EstudianteController::class, 'guardar2']);
 
