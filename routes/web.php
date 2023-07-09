@@ -43,3 +43,9 @@ Route::get('/lecciones1', [LeccionController::class, 'mostrar1']);
 Route::get('/lecciones1/guardar', [LeccionController::class, 'guardar1']);
 Route::get('/lecciones2', [LeccionController::class, 'mostrar2']);
 Route::get('/lecciones2/guardar', [LeccionController::class, 'guardar2']);
+
+//Controlador escuelas
+Route::get('/escuelas', [EscuelaController::class, 'mostrar1']);
+Route::get('/escuelas/guardar', [EscuelaController::class, 'guardar1']);
+Route::get('/escuelas', [EscuelaController::class, 'mostrar2']);
+Route::get('/escuelas/guardar', [EscuelaController::class, 'guardar2']);
