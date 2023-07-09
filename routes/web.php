@@ -40,7 +40,7 @@ Route::get('/programaciones2/guardar', [ProgramacionController::class, 'guardar2
 
 //Controlador lecciones
 Route::get('/lecciones1', [LeccionController::class, 'mostrar1']);
-Route::get('/lecciones1/guardar', [LeccionController::class, 'guardar1']);
+Route::get('/lecciones1/guardar', [LeccionController::class, 'guardar1'])->name("leccionGuardar");
 Route::get('/lecciones2', [LeccionController::class, 'mostrar2']);
 Route::get('/lecciones2/guardar', [LeccionController::class, 'guardar2']);
 
